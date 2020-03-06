@@ -1,0 +1,7 @@
+az container create -g eventhubmessagesendapp \
+            --name myapp1 \
+            --image manishawesomeregistry.azurecr.io/eventsenderapp:latest \
+            --cpu 1 --memory 1 --registry-login-server manishawesomeregistry.azurecr.io  \
+            --registry-password TjbSZsZefdaDpHZaVzEDvIB0K9XYIcc= \
+            --registry-username manishawesomeregistry \
+

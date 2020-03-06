@@ -1,0 +1,14 @@
+{  
+      "messagedetails":{
+      "messagebody":{
+            "key1": "value1",
+            "key2": "value2",
+            "key3": "value3",
+            "key4" : "value4"
+      },
+      "uniqueguidfield":"eventguid",
+      "timestampfield":"eventcreationtime"
+    },
+    "waitintervalinms":10000,
+    "messagespertriger":20
+  }

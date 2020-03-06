@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeployment
+  labels:
+    app: mydeploymentlabel
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: eventpublish
+  template:
+    metadata:
+      labels:
+        app: eventpublish
+    spec:
+      containers:
+      - name: awesomemessagesenderv2
+        image: lsegconreg.azurecr.io/awesomemessagesenderv2
