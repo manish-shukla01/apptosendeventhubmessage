@@ -1,5 +1,7 @@
 ## Super simple app to send test messages to Eventhub
 
+I have run across scenarios where i had to quickly do some POC for event processing for event hub events. e.g. Databricks/HDI Spark structured streaming, ADX connection to eventhub etc.  I wrote a small piece of code to send messages but i used it a few times so thought would share if someone wants.
+
 ### Config changes
 
 1. Please change .env file so event hub connection string can be set correctly.
