@@ -15,11 +15,12 @@ node sendmessages.js
 
 ### Use Azure containers to send messages
 
+Replace the variables as needed. I have left some variables from my test as is intentionally.
+
 Create container registry:
 ``` 
 az acr create -n <Your registry name> -g <resource group> --sku Standard
 ```
-az acr create -n deletesoonrepo -g deletesoon --sku Standard
 
 Build and upload image to ACR:
 
@@ -31,13 +32,13 @@ By now you should see the ACR in azure portal with the image in there. Next comm
 
 
 ```
-az acr update --name <repo name> --admin-enabled true 
+az acr update --name <Registry name> --admin-enabled true 
 ```
 
 Get the credentials using below command.
 
 ```
- az acr credential show --name <repo name> -g <resource group>
+ az acr credential show --name <Registry name> -g <resource group>
  ```
 
  Use the below command to run a container with 1 cpu and 0.5 gb memory. Change as appropriate to your environment.
@@ -45,7 +46,7 @@ Get the credentials using below command.
  ```
 
 
-az container create --name myapp -g <resource group> --image "<repo name>.azurecr.io/sendmessageapp/toeventhub:latest" --cpu 1 --memory 0.5 --registry-username <username> --registry-password <password> --registry-login-server <loginserver>.azurecr.io
+az container create --name myapp -g <resource group> --image "<registry name>.azurecr.io/sendmessageapp/toeventhub:latest" --cpu 1 --memory 0.5 --registry-username <username> --registry-password <password> --registry-login-server <loginserver>.azurecr.io
 
 ```
 
