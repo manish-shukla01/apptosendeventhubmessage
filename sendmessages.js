@@ -33,17 +33,19 @@ async function main() {
 
   
   const client = EventHubClient.createFromConnectionString(eventhubconstring);
+  console.log(`conneciton string:${eventhubconstring}`);
   const messagespertrigger = config.get('messagespertriger');
   
 
   for (let i = 0; i < messagespertrigger; i++) {
     const currenttimestamp =  new Date(new Date().toUTCString());
-    const symbolindex = getRandomIntInclusive(0,9) ;
+    
     const uuidv4 = require('uuid/v4');
  
     const eventData = `{body: ${JSON.stringify(eventbody)}, "${uniqueguidfield}": ${uuidv4()}, "${uniquetimefield}" : ${currenttimestamp}  }`;
     
     console.log(`sending ${eventData}`);
+    
 
     await client.send({body: eventData});
   }
